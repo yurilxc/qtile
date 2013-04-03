@@ -320,21 +320,21 @@ class Stack(Layout):
         self.currentStack.toggleSplit()
         self.group.layoutAll()
 
-    def cmd_up(self):
+    def cmd_down(self):
         """
             Switch to the next window in this stack.
         """
         self.currentStack.current -= 1
         self.group.focus(self.currentStack.cw, False)
 
-    def cmd_down(self):
+    def cmd_up(self):
         """
             Switch to the previous window in this stack.
         """
         self.currentStack.current += 1
         self.group.focus(self.currentStack.cw, False)
 
-    def cmd_shuffle_down(self):
+    def cmd_shuffle_up(self):
         """
             Shuffle the order of this stack up.
         """
@@ -342,7 +342,7 @@ class Stack(Layout):
         self.currentStack.current += 1
         self.group.layoutAll()
 
-    def cmd_shuffle_up(self):
+    def cmd_shuffle_down(self):
         """
             Shuffle the order of this stack down.
         """
