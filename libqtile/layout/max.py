@@ -80,11 +80,12 @@ class Max(SingleWindow):
                 screen.width,
                 screen.height,
                 0,
-                None
+                None,
+                above=True
             )
             c.unhide()
         else:
-            c.hide()
+            c.unhide()
 
     def info(self):
         d = SingleWindow.info(self)

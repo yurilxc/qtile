@@ -301,11 +301,12 @@ class Stack(Layout):
                     winWidth,
                     screen.height - 2 * self.border_width,
                     self.border_width,
-                    px
+                    px,
+                    above=True, 
                 )
                 c.unhide()
             else:
-                c.hide()
+                c.unhide()
 
     def info(self):
         d = Layout.info(self)
