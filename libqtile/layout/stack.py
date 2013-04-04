@@ -283,7 +283,7 @@ class Stack(Layout):
         if s.split:
             columnHeight = int(screen.height / float(len(s)))
             winHeight = columnHeight - 2 * self.border_width
-            yoffset = screen.y + (len(s.lst) - 1 - s.index(c)) * columnHeight
+            yoffset = screen.y + (len(s) - 1 - s.index(c)) * columnHeight
             c.place(
                 xoffset,
                 yoffset,
