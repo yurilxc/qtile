@@ -290,7 +290,8 @@ class Stack(Layout):
                 winWidth,
                 winHeight,
                 self.border_width,
-                px
+                px,
+                above=(c==s.cw), 
             )
             c.unhide()
         else:

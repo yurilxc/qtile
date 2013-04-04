@@ -81,7 +81,7 @@ class Max(SingleWindow):
                 screen.height,
                 0,
                 None,
-                above=True
+                above=True, 
             )
             c.unhide()
         else:
