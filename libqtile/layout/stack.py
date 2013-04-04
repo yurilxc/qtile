@@ -280,7 +280,18 @@ class Stack(Layout):
         xoffset = screen.x + i * columnWidth
         winWidth = columnWidth - 2 * self.border_width
 
-        if s.split:
+        if hasattr(c, 'isMaximized') and c.isMaximized:
+            c.place(
+                screen.x,
+                screen.y,
+                screen.width, 
+                screen.height, 
+                0, 
+                None,
+                above=(c is self.group.currentWindow), 
+            )
+            c.unhide()
+        elif s.split:
             columnHeight = int(screen.height / float(len(s)))
             winHeight = columnHeight - 2 * self.border_width
             yoffset = screen.y + (len(s) - 1 - s.index(c)) * columnHeight
@@ -291,7 +302,7 @@ class Stack(Layout):
                 winHeight,
                 self.border_width,
                 px,
-                above=(c==s.cw), 
+                above=(c is self.group.currentWindow), 
             )
             c.unhide()
         else:
@@ -303,7 +314,7 @@ class Stack(Layout):
                     screen.height - 2 * self.border_width,
                     self.border_width,
                     px,
-                    above=True, 
+                    above=(c is self.group.currentWindow), 
                 )
                 c.unhide()
             else:
@@ -413,3 +424,9 @@ class Stack(Layout):
 
     def cmd_info(self):
         return self.info()
+
+    def cmd_toggle_maximize(self):
+        if not hasattr(self.group.currentWindow, 'isMaximized'):
+            self.group.currentWindow.isMaximized = False
+        self.group.currentWindow.isMaximized = not self.group.currentWindow.isMaximized
+        self.group.layoutAll()
