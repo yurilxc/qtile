@@ -288,7 +288,6 @@ class Stack(Layout):
                 screen.height, 
                 0, 
                 None,
-                above=(c is self.group.currentWindow), 
             )
             c.unhide()
         elif s.split:
@@ -302,7 +301,6 @@ class Stack(Layout):
                 winHeight,
                 self.border_width,
                 px,
-                above=(c is self.group.currentWindow), 
             )
             c.unhide()
         else:
@@ -314,10 +312,17 @@ class Stack(Layout):
                     screen.height - 2 * self.border_width,
                     self.border_width,
                     px,
-                    above=(c is self.group.currentWindow), 
                 )
                 c.unhide()
             else:
+                c.place(
+                    xoffset,
+                    screen.y,
+                    winWidth,
+                    screen.height - 2 * self.border_width,
+                    self.border_width,
+                    px,
+                )
                 c.unhide()
 
     def info(self):

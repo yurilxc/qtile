@@ -376,6 +376,8 @@ class _Window(command.CommandObject):
 
     def place(self, x, y, width, height, borderwidth, bordercolor,
         above=False, force=False, twice=False):
+        if self.group:
+            above=self is self.group.currentWindow
         """
             Places the window at the specified location with the given size.
 
