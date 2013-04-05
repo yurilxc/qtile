@@ -81,10 +81,17 @@ class Max(SingleWindow):
                 screen.height,
                 0,
                 None,
-                above=True, 
             )
             c.unhide()
         else:
+            c.place(
+                screen.x,
+                screen.y,
+                screen.width,
+                screen.height,
+                0,
+                None,
+            )
             c.unhide()
 
     def info(self):
