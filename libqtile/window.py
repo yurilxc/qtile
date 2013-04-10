@@ -376,8 +376,6 @@ class _Window(command.CommandObject):
 
     def place(self, x, y, width, height, borderwidth, bordercolor,
         above=False, force=False, twice=False):
-        if self.group:
-            above=self is self.group.currentWindow
         """
             Places the window at the specified location with the given size.
 
@@ -404,7 +402,6 @@ class _Window(command.CommandObject):
             if self is self.group.currentWindow:
                 above = True
             elif self.floating and not (self.fullscreen or self.maximized):
-                above = True
 
         # save x and y float offset
         if self.group is not None and self.group.screen is not None:
